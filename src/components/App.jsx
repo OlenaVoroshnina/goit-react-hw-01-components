@@ -1,4 +1,4 @@
-export const App = () => {
+export const App = ({children}) => {
   return (
     <div
       style={{
@@ -7,10 +7,11 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
+        padding: '80px'
       }}
     >
-      React homework template
+      {children}
     </div>
   );
 };
