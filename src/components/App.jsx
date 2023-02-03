@@ -2,10 +2,12 @@ import PropTypes from "prop-types";
 import user from '../components/Profile/user.json';
 import data from '../components/Statistics/data.json';
 import friends from '../components/FriendList/friends.json';
+import transactions from '../components/TransactionHistory/transactions.json';
 import Profile from '../components/Profile/Profile'; 
 import Statistics from '../components/Statistics/Statistics';
 import StatisticsList from "./Statistics/StatisticsList";
 import FriendList from './FriendList/FriendList';
+import TransactionHistory from './TransactionHistory/TransactionHistory';
 
 export const App = () => {
   return (
@@ -13,7 +15,6 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
-        // justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
         color: '#010101',
@@ -35,6 +36,8 @@ export const App = () => {
       </Statistics>
       
       <FriendList friends={friends} />
+
+      <TransactionHistory items={transactions} />
     </div>
   );
 };
@@ -68,6 +71,14 @@ App.propTypes = {
       name: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
+    }
+  )),
+  transactions: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      currency: PropTypes.string.isRequired,
     }
   )),
 };
